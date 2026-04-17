@@ -78,7 +78,7 @@ CREATE USER 'user_ext'@'localhost' IDENTIFIED BY 'senha0101';
 
 GRANT SELECT, INSERT ON Cinefun.* TO 'user_ext'@'localhost';
 
----adicional
+--- questões adicionais
 
 create table Funcionario(
 	matricula INT PRIMARY KEY,
@@ -100,7 +100,7 @@ create table Ingressos(
     foreign key (funcionario) references funcionario(matricula)
 	
 );
-
+-- inserir dados
 insert into Funcionario(matricula, nome_completo, cargo)
 values (123, 'Fulano Ciclano', 'Demitido'),
 (321, 'Ciclano Fulanus', 'Caixa');
@@ -112,24 +112,28 @@ values (25, 'Meia', '09:00', 25.80, 2, 1, '000.098.098-87', 321);
 insert into clientes
 values ('000.098.098-88', 'Falano', '33721700', '2026-01-01');
 
+-- criar usuarios
 create user 'caixa'@'localhost' identified by 'senha123';
 create user 'gerente'@'localhost' identified by 'senha123';
 create user 'analistamarketing'@'localhost' identified by 'senha123';
 create user 'auditorexterno'@'localhost' identified by 'senha123';
 create user 'funcionariodemitido'@'localhost' identified by 'senha123';
 
+-- mostrar grants
 show grants for 'caixa'@'localhost';
 
 SELECT user, host FROM mysql.user;
 
 GRANT SELECT, INSERT ON Cinefun.* TO 'funcionariodemitido'@'localhost';
 
+-- revoke all priviledges só funciona se tiver dado all privileges, nesse caso eu deveria usar revoke para select e insert manualmente para funcionar;
 revoke all privileges on cinefun.* from 'funcionariodemitido'@'localhost';
 
 
-
+--todos os privilegios para gerente
 GRANT all privileges on Cinefun.* TO 'gerente'@'localhost';
 
+-- select pode acessar o banco de dados, insert pode editar..
 GRANT select on Cinefun.* TO 'analistademarketing';
 
 GRANT select on Cinefun.* TO 'auditorexterno'@'localhost';
