@@ -56,5 +56,28 @@ on p.id = e.id_produto
 group by categoria;
 
 
+--exercicios funcoes embutidas
+
+SELECT NOW()
+
+SELECT DAYNAME(NOW())
+
+SELECT DATE_FORMAT('2026-05-12','%d/%M/%Y') 
+as "Data Fromatada"
+
+--3concatenar
+select data_lancamento, CONCAT(concat(nome, " "), categoria) as "Nome completo"
+from produto order by data_lancamento ASC
+limit 1
+
+--media preco produts
+select concat("R$", truncate(avg(preco), 2)) as "preço médio"
+from produto
+
+---nome mais longo
+select nome, length(descricao) as "comprimento"
+from produto order by comprimento DESC
+LIMIT 1
+
 
 
