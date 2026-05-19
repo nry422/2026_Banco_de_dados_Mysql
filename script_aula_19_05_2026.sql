@@ -95,7 +95,7 @@ group by l.cidade
 having sum(p.preco*quantidade_disponivel) > 3000;
 
 
---exercicios pdf funcoes embutidas
+--exercicios pdf funcoes embutidas pag 22
 
 --exercicio 1
 select nome from produto
@@ -167,10 +167,25 @@ group by c.nome
 having count(pc.id_produto) >= 3
 order by c.nome asc;
 
+--exercicios pag 34
+
+--1
+
+select nome, preco,
+		case
+			when p.preco >
 
 
 
-
+SELECT 
+    nome,
+    preco AS preco_original,
+    CASE 
+        WHEN preco < 50 THEN 'Econômico'
+        WHEN preco BETWEEN 50 AND 500 THEN 'Intermediário'
+        ELSE 'Premium'
+    END AS Faixa
+FROM Produto;
 
 
 
