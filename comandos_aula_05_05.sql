@@ -2,6 +2,7 @@
 
 --01
 select nome, tipo
+from produto
 where categoria like "Eletro%";
 
 --02
@@ -20,7 +21,8 @@ from produto where descricao like "Smartphone%";
 
 --05
 select nome, categoria
-from produto where categoria like "eletronico%" or categoria like "telefonia%";
+from produto
+where categoria like "Eletronico%" or categoria like "Telefonia%";
 
 --06
 select nome, descricao
@@ -36,12 +38,12 @@ from produto where nome like "%Premium";
 
 --09
 select nome, descricao
-from produto where descricao like "%alta%" and preco > '900';
+from produto where descricao like "%alta%" and preco > 900;
 
 --10
 select nome, descricao
 from produto 
-where nome like "%smartphone%" or  "%notebook%";
+where nome like "%smartphone%" or nome like "%notebook%"
 
 --exercicio 02
 
@@ -75,10 +77,10 @@ on l.id = e.id_loja;
 select p.nome, p.descricao
 from produto AS p
 inner join estoque as e
-on p.id = e.id_produto;
+on p.id = e.id_produto
 where e.quantidade_disponivel > '10';
 
---05 nao funciona
+--05 
 
 select p.nome, e.quantidade_disponivel, l.cidade
 from produto AS p

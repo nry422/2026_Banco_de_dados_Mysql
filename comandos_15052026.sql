@@ -58,9 +58,9 @@ group by categoria;
 
 --exercicios funcoes embutidas
 
-SELECT NOW()
+SELECT NOW();
 
-SELECT DAYNAME(NOW())
+SELECT DAYNAME(NOW());
 
 SELECT DATE_FORMAT('2026-05-12','%d/%M/%Y') 
 as "Data Fromatada"
