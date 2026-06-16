@@ -237,7 +237,7 @@ inner join estoque as e
 inner join produto as p
 on p.id = e.id_produto
 and l.id = e.id_loja
-where (SELECT MAX(preco) FROM produto);
+WHERE p.preco = (SELECT MAX(preco) FROM produto)
 group by l.nome, l.cidade;
 
 --6 Liste os nomes dos produtos que possuem ao menos uma característica contendo a palavra "Tela" no
